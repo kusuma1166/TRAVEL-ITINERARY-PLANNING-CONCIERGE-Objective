@@ -1,0 +1,119 @@
+{"event":"project_initialized","detail":"This JSONL file is append-only; each demo run adds one line per trace event."}
+{"timestamp": "2026-11-15T10:35:18.276852+00:00", "agent": "planner_manager", "action": "request_accepted", "request": {"origin": "Boston", "destination": "Kyoto", "days": 3, "budget": 2500.0, "interests": ["culture", "food", "nature"], "travelers": 2}}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "flight_worker", "action": "search_flights", "options": 3}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Premium direct flight: Boston to Kyoto (round trip)", "cost": 1800.0, "approved": true, "remaining_before": 2500.0}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "hotel_worker", "action": "search_hotels", "options": 3}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Central comfort hotel in Kyoto (2 nights)", "cost": 480.0, "approved": true, "remaining_before": 700.0}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 1, "options": 4}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": true, "remaining_before": 220.0}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 2, "options": 4}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": true, "remaining_before": 130.0}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 3, "options": 4}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 40.0}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_3", "day": 3}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 3, "options": 3}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": true, "remaining_before": 40.0}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "budget_worker", "action": "get_budget_report", "budget": 2500.0, "spent": 2490.0, "remaining": 10.0}
+{"timestamp": "2026-11-15T10:35:18.279853+00:00", "agent": "planner_manager", "action": "itinerary_built", "total": 2490.0}
+{"timestamp": "2026-11-15T10:40:44.917062+00:00", "agent": "planner_manager", "action": "request_accepted", "request": {"origin": "Boston", "destination": "Kyoto", "days": 3, "budget": 900.0, "interests": ["culture", "food", "nature"], "travelers": 2}}
+{"timestamp": "2026-11-15T10:40:44.918458+00:00", "agent": "flight_worker", "action": "search_flights", "options": 3}
+{"timestamp": "2026-11-15T10:40:44.918472+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Premium direct flight: Boston to Kyoto (round trip)", "cost": 1800.0, "approved": false, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T10:40:44.918476+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "flight", "day": null}
+{"timestamp": "2026-11-15T10:40:44.918480+00:00", "agent": "flight_worker", "action": "find_cheaper_flights", "options": 2}
+{"timestamp": "2026-11-15T10:40:44.918484+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Standard one-stop flight: Boston to Kyoto (round trip)", "cost": 960.0, "approved": false, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T10:40:44.918486+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "flight", "day": null}
+{"timestamp": "2026-11-15T10:40:44.918489+00:00", "agent": "flight_worker", "action": "find_cheaper_flights", "options": 1}
+{"timestamp": "2026-11-15T10:40:44.918491+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Economy advance fare flight: Boston to Kyoto (round trip)", "cost": 560.0, "approved": true, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T10:40:44.918507+00:00", "agent": "hotel_worker", "action": "search_hotels", "options": 3}
+{"timestamp": "2026-11-15T10:40:44.918511+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Central comfort hotel in Kyoto (2 nights)", "cost": 480.0, "approved": false, "remaining_before": 340.0}
+{"timestamp": "2026-11-15T10:40:44.918513+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "hotel", "day": null}
+{"timestamp": "2026-11-15T10:40:44.918515+00:00", "agent": "hotel_worker", "action": "find_cheaper_hotels", "options": 2}
+{"timestamp": "2026-11-15T10:40:44.918518+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Neighborhood guesthouse in Kyoto (2 nights)", "cost": 260.0, "approved": true, "remaining_before": 340.0}
+{"timestamp": "2026-11-15T10:40:44.918532+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 1, "options": 4}
+{"timestamp": "2026-11-15T10:40:44.918536+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 80.0}
+{"timestamp": "2026-11-15T10:40:44.918538+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_1", "day": 1}
+{"timestamp": "2026-11-15T10:40:44.918542+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 1, "options": 3}
+{"timestamp": "2026-11-15T10:40:44.918545+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": true, "remaining_before": 80.0}
+{"timestamp": "2026-11-15T10:40:44.918553+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 2, "options": 4}
+{"timestamp": "2026-11-15T10:40:44.918556+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 50.0}
+{"timestamp": "2026-11-15T10:40:44.918557+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_2", "day": 2}
+{"timestamp": "2026-11-15T10:40:44.918560+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 2, "options": 3}
+{"timestamp": "2026-11-15T10:40:44.918563+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": true, "remaining_before": 50.0}
+{"timestamp": "2026-11-15T10:40:44.918568+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 3, "options": 4}
+{"timestamp": "2026-11-15T10:40:44.918571+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T10:40:44.918572+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_3", "day": 3}
+{"timestamp": "2026-11-15T10:40:44.918575+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 3, "options": 3}
+{"timestamp": "2026-11-15T10:40:44.918577+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": false, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T10:40:44.918579+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_3", "day": 3}
+{"timestamp": "2026-11-15T10:40:44.918585+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 3, "options": 2}
+{"timestamp": "2026-11-15T10:40:44.918587+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Self-guided local food walk in Kyoto", "cost": 10.0, "approved": true, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T10:40:44.918594+00:00", "agent": "budget_worker", "action": "get_budget_report", "budget": 900.0, "spent": 890.0, "remaining": 10.0}
+{"timestamp": "2026-11-15T10:40:44.918604+00:00", "agent": "planner_manager", "action": "itinerary_built", "total": 890.0}
+{"timestamp": "2026-11-15T10:41:12.908309+00:00", "agent": "planner_manager", "action": "request_accepted", "request": {"origin": "Boston", "destination": "Kyoto", "days": 3, "budget": 900.0, "interests": ["culture", "food"], "travelers": 2}}
+{"timestamp": "2026-11-15T10:41:12.911128+00:00", "agent": "flight_worker", "action": "search_flights", "options": 3}
+{"timestamp": "2026-11-15T10:41:12.911148+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Premium direct flight: Boston to Kyoto (round trip)", "cost": 1800.0, "approved": false, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T10:41:12.911153+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "flight", "day": null}
+{"timestamp": "2026-11-15T10:41:12.911157+00:00", "agent": "flight_worker", "action": "find_cheaper_flights", "options": 2}
+{"timestamp": "2026-11-15T10:41:12.911163+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Standard one-stop flight: Boston to Kyoto (round trip)", "cost": 960.0, "approved": false, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T10:41:12.911167+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "flight", "day": null}
+{"timestamp": "2026-11-15T10:41:12.911171+00:00", "agent": "flight_worker", "action": "find_cheaper_flights", "options": 1}
+{"timestamp": "2026-11-15T10:41:12.911175+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Economy advance fare flight: Boston to Kyoto (round trip)", "cost": 560.0, "approved": true, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T10:41:12.911198+00:00", "agent": "hotel_worker", "action": "search_hotels", "options": 3}
+{"timestamp": "2026-11-15T10:41:12.911204+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Central comfort hotel in Kyoto (2 nights)", "cost": 480.0, "approved": false, "remaining_before": 340.0}
+{"timestamp": "2026-11-15T10:41:12.911207+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "hotel", "day": null}
+{"timestamp": "2026-11-15T10:41:12.911210+00:00", "agent": "hotel_worker", "action": "find_cheaper_hotels", "options": 2}
+{"timestamp": "2026-11-15T10:41:12.911213+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Neighborhood guesthouse in Kyoto (2 nights)", "cost": 260.0, "approved": true, "remaining_before": 340.0}
+{"timestamp": "2026-11-15T10:41:12.911234+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 1, "options": 4}
+{"timestamp": "2026-11-15T10:41:12.911240+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 80.0}
+{"timestamp": "2026-11-15T10:41:12.911242+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_1", "day": 1}
+{"timestamp": "2026-11-15T10:41:12.911247+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 1, "options": 3}
+{"timestamp": "2026-11-15T10:41:12.911250+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": true, "remaining_before": 80.0}
+{"timestamp": "2026-11-15T10:41:12.911263+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 2, "options": 4}
+{"timestamp": "2026-11-15T10:41:12.911268+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 50.0}
+{"timestamp": "2026-11-15T10:41:12.911270+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_2", "day": 2}
+{"timestamp": "2026-11-15T10:41:12.911275+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 2, "options": 3}
+{"timestamp": "2026-11-15T10:41:12.911278+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": true, "remaining_before": 50.0}
+{"timestamp": "2026-11-15T10:41:12.911287+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 3, "options": 4}
+{"timestamp": "2026-11-15T10:41:12.911291+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T10:41:12.911294+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_3", "day": 3}
+{"timestamp": "2026-11-15T10:41:12.911298+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 3, "options": 3}
+{"timestamp": "2026-11-15T10:41:12.911301+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": false, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T10:41:12.911303+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_3", "day": 3}
+{"timestamp": "2026-11-15T10:41:12.911306+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 3, "options": 2}
+{"timestamp": "2026-11-15T10:41:12.911309+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Self-guided local food walk in Kyoto", "cost": 10.0, "approved": true, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T10:41:12.911318+00:00", "agent": "budget_worker", "action": "get_budget_report", "budget": 900.0, "spent": 890.0, "remaining": 10.0}
+{"timestamp": "2026-11-15T10:41:12.911333+00:00", "agent": "planner_manager", "action": "itinerary_built", "total": 890.0}
+{"timestamp": "2026-11-15T11:01:54.466703+00:00", "agent": "planner_manager", "action": "request_accepted", "request": {"origin": "Boston", "destination": "Kyoto", "days": 3, "budget": 900.0, "interests": ["culture", "food", "nature"], "travelers": 2}}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "flight_worker", "action": "search_flights", "options": 3}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Premium direct flight: Boston to Kyoto (round trip)", "cost": 1800.0, "approved": false, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "flight", "day": null}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "flight_worker", "action": "find_cheaper_flights", "options": 2}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Standard one-stop flight: Boston to Kyoto (round trip)", "cost": 960.0, "approved": false, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "flight", "day": null}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "flight_worker", "action": "find_cheaper_flights", "options": 1}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Economy advance fare flight: Boston to Kyoto (round trip)", "cost": 560.0, "approved": true, "remaining_before": 900.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "hotel_worker", "action": "search_hotels", "options": 3}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Central comfort hotel in Kyoto (2 nights)", "cost": 480.0, "approved": false, "remaining_before": 340.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "hotel", "day": null}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "hotel_worker", "action": "find_cheaper_hotels", "options": 2}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Neighborhood guesthouse in Kyoto (2 nights)", "cost": 260.0, "approved": true, "remaining_before": 340.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 1, "options": 4}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 80.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_1", "day": 1}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 1, "options": 3}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": true, "remaining_before": 80.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 2, "options": 4}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 50.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_2", "day": 2}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 2, "options": 3}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": true, "remaining_before": 50.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "activity_worker", "action": "suggest_for_day", "day": 3, "options": 4}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Local Food Walk in Kyoto", "cost": 90.0, "approved": false, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_3", "day": 3}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 3, "options": 3}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Small-group local food walk in Kyoto", "cost": 30.0, "approved": false, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "replan_requested", "category": "activity_day_3", "day": 3}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "activity_worker", "action": "find_cheaper_activities", "day": 3, "options": 2}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "approve_addition", "item": "Self-guided local food walk in Kyoto", "cost": 10.0, "approved": true, "remaining_before": 20.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "budget_worker", "action": "get_budget_report", "budget": 900.0, "spent": 890.0, "remaining": 10.0}
+{"timestamp": "2026-11-15T11:01:54.469851+00:00", "agent": "planner_manager", "action": "itinerary_built", "total": 890.0}

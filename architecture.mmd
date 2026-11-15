@@ -1,0 +1,19 @@
+flowchart TD
+    U[Travel request] --> M[Planner Manager]
+    M --> F[Flight Worker]
+    M --> H[Hotel Worker]
+    M --> A[Activity Worker]
+    F --> S[(Shared TripState)]
+    H --> S
+    A --> S
+    M --> S
+    F --> B[Budget Worker: gate]
+    H --> B
+    A --> B
+    B <--> S
+    B -->|Rejected: ask for cheaper options| M
+    M -->|Re-plan / rebuild| F
+    M -->|Re-plan / rebuild| H
+    M -->|Re-plan / rebuild| A
+    S --> I[Day-by-day itinerary + trace]
+    S --> L[Append-only JSONL run log]
