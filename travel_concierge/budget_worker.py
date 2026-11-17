@@ -14,15 +14,17 @@ class BudgetWorker:
 
     @kernel_function(description="Approve an item only when it fits the remaining trip budget.")
     def approve_addition(self, item: dict[str, Any]) -> bool:
-        cost = float(item["cost"])
-        if cost < 0:
+        raw_cost = item.get("cost")
+        cost = float(raw_cost) if raw_cost is not None else None
+        if cost is not None and cost < 0:
             raise ValueError("An itinerary item cannot have a negative cost.")
-        approved = cost <= self.state.budget_remaining
+        approved = cost is None or cost <= self.state.budget_remaining
         self.state.record(
             "budget_worker",
             "approve_addition",
             item=item["name"],
             cost=cost,
+            budgeted=cost is not None,
             approved=approved,
             remaining_before=self.state.budget_remaining,
         )

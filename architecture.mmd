@@ -3,6 +3,12 @@ flowchart TD
     M --> F[Flight Worker]
     M --> H[Hotel Worker]
     M --> A[Activity Worker]
+    F -->|Live offers| G[SerpApi / Google Flights]
+    H -->|Live rates| K[SerpApi / Google Hotels]
+    A -->|Live places| P[SerpApi / Google Maps]
+    W[Weather client] -->|Forecast| O[Open-Meteo]
+    U -->|Optional, explicit opt-in| L[OpenAI briefing]
+    L --> I
     F --> S[(Shared TripState)]
     H --> S
     A --> S
@@ -10,10 +16,14 @@ flowchart TD
     F --> B[Budget Worker: gate]
     H --> B
     A --> B
+    U -->|Daily food and transport estimates| B
     B <--> S
     B -->|Rejected: ask for cheaper options| M
     M -->|Re-plan / rebuild| F
     M -->|Re-plan / rebuild| H
     M -->|Re-plan / rebuild| A
     S --> I[Day-by-day itinerary + trace]
+    W --> I
+    I -->|Coordinates and provider links| V[Streamlit map and external links]
     S --> L[Append-only JSONL run log]
+    S -->|Unknown admission prices excluded| I

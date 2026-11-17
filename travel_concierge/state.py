@@ -22,7 +22,10 @@ class TripState:
 
     @property
     def total(self) -> float:
-        return round(sum(item["cost"] for item in self.chosen_items), 2)
+        return round(
+            sum(item["cost"] for item in self.chosen_items if item.get("cost") is not None),
+            2,
+        )
 
     def record(self, agent: str, action: str, **details: Any) -> None:
         self.events.append({
