@@ -4,7 +4,10 @@ import json
 import os
 from typing import Any
 
+import httpx
 from openai import OpenAI, OpenAIError
+
+from .tls import create_system_ssl_context
 
 
 class LLMConfigurationError(RuntimeError):
@@ -18,7 +21,7 @@ class ItineraryAssistant:
             raise LLMConfigurationError(
                 "Enter an OpenAI API key to request an AI-generated trip briefing."
             )
-        self.client = OpenAI(api_key=api_key)
+        self.api_key = api_key
         self.model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
     def create_briefing(
@@ -49,25 +52,27 @@ class ItineraryAssistant:
             "weather": weather.get("forecast", []) if weather and weather.get("available") else [],
             "unpriced_activities": itinerary["unpriced_activities"],
         }
-        response = self.client.chat.completions.create(
-            model=self.model,
-            temperature=0.2,
-            messages=[
-                {
-                    "role": "system",
-                    "content": (
-                        "You are a travel planning assistant. Summarize the supplied itinerary "
-                        "and give practical tips grounded only in the supplied data. Never invent "
-                        "prices, weather, opening hours, or availability. Clearly call out "
-                        "unknown activity admission prices and any budget exclusions."
-                    ),
-                },
-                {
-                    "role": "user",
-                    "content": json.dumps(summary, ensure_ascii=False),
-                },
-            ],
-        )
+        with httpx.Client(verify=create_system_ssl_context()) as http_client:
+            client = OpenAI(api_key=self.api_key, http_client=http_client)
+            response = client.chat.completions.create(
+                model=self.model,
+                temperature=0.2,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are a travel planning assistant. Summarize the supplied itinerary "
+                            "and give practical tips grounded only in the supplied data. Never invent "
+                            "prices, weather, opening hours, or availability. Clearly call out "
+                            "unknown activity admission prices and any budget exclusions."
+                        ),
+                    },
+                    {
+                        "role": "user",
+                        "content": json.dumps(summary, ensure_ascii=False),
+                    },
+                ],
+            )
         if not response.choices:
             raise OpenAIError("The model returned no choices for the trip briefing.")
         briefing = response.choices[0].message.content

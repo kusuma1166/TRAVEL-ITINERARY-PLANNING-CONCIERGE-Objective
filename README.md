@@ -44,6 +44,8 @@ SerpApi key signup: https://serpapi.com/users/sign_up. The service currently lis
 
 Open-Meteo supplies destination weather without an API key; forecasts are shown only for dates from today through 15 days ahead. Food and local transport are optional per-person daily estimates supplied by the traveler, reserved in the budget before flights and hotels are selected; they are not live quotes. The itinerary summary is sent to OpenAI only after the explicit opt-in checkbox is selected and an OpenAI key is available. `OPENAI_MODEL` can override the default `gpt-4o-mini` model.
 
+API connections verify TLS using the platform's trusted certificate store via `truststore`. If TLS verification still fails on a managed network, ask the administrator to install the organization's trusted root CA; certificate verification must not be disabled.
+
 Open and run `travel_concierge_demo.ipynb` for the live-search notebook demo. Each successful CLI/notebook run appends its trace to `run_log.jsonl`; existing entries are not overwritten. See [architecture.mmd](architecture.mmd) for the architecture diagram.
 
 ## Honest failure handled

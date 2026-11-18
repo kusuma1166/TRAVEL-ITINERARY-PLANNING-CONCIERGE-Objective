@@ -2,7 +2,7 @@ import unittest
 from datetime import date, timedelta
 from io import BytesIO
 from types import SimpleNamespace
-from unittest.mock import Mock, patch
+from unittest.mock import ANY, Mock, patch
 from urllib.parse import parse_qs, urlparse
 import os
 from urllib.error import HTTPError
@@ -335,21 +335,36 @@ class LLMAssistantTests(unittest.TestCase):
                 briefing = assistant.create_briefing(itinerary)
 
             self.assertEqual(briefing, "Pack an umbrella.")
-            openai_client.assert_called_once_with(api_key="test-key")
+            openai_client.assert_called_once_with(api_key="test-key", http_client=ANY)
             sent_summary = client.chat.completions.create.call_args.kwargs["messages"][1]["content"]
             self.assertIn('"destination": "Kyoto"', sent_summary)
             self.assertIn('"unpriced_activities": ["Museum"]', sent_summary)
 
     def test_explicit_key_is_used_without_environment_configuration(self):
             client = SimpleNamespace(
-                chat=SimpleNamespace(completions=SimpleNamespace(create=Mock()))
+                chat=SimpleNamespace(
+                    completions=SimpleNamespace(
+                        create=Mock(return_value=SimpleNamespace(
+                            choices=[SimpleNamespace(message=SimpleNamespace(content="Ready."))]
+                        ))
+                    )
+                )
             )
+            itinerary = {
+                "destination": "Kyoto",
+                "interests": ["culture"],
+                "currency": "USD",
+                "budget": {},
+                "days": [],
+                "unpriced_activities": [],
+            }
             with (
                 patch.dict(os.environ, {"OPENAI_API_KEY": ""}),
                 patch("travel_concierge.llm_assistant.OpenAI", return_value=client) as openai_client,
             ):
-                ItineraryAssistant(api_key="session-only-key")
-            openai_client.assert_called_once_with(api_key="session-only-key")
+                briefing = ItineraryAssistant(api_key="session-only-key").create_briefing(itinerary)
+            self.assertEqual(briefing, "Ready.")
+            openai_client.assert_called_once_with(api_key="session-only-key", http_client=ANY)
 
     def test_empty_model_response_is_an_explicit_error(self):
             client = SimpleNamespace(

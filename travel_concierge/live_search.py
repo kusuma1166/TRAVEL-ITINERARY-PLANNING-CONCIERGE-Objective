@@ -7,6 +7,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+from .tls import create_system_ssl_context
+
 
 class LiveSearchError(RuntimeError):
     """Raised when a configured live travel search cannot be completed."""
@@ -39,7 +41,11 @@ class SerpApiClient:
             headers={"Accept": "application/json", "User-Agent": "TravelConcierge/1.0"},
         )
         try:
-            with urlopen(request, timeout=self.timeout) as response:
+            with urlopen(
+                request,
+                timeout=self.timeout,
+                context=create_system_ssl_context(),
+            ) as response:
                 payload = json.load(response)
         except HTTPError as error:
             try:
